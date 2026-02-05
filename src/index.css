@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #FCFAF4;
+  --color-forest: #2D5D46;
+  --color-cream: #FFEDD6;
+  --color-bronze: #AE7533;
+  --color-sage: #94A591;
+}
+
+html { scroll-behavior: smooth; }
+
+
+/* subtle grain */
+.grain::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
+  opacity:.25;
+  pointer-events:none;
+  mix-blend-mode:multiply;
+}
+
+/* logo slider */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee {
+  animation: marquee 18s linear infinite;
+}
+.marquee:hover { animation-play-state: paused; }
+
+@keyframes drop {
+  from { opacity: 0; transform: translateY(-8px) scale(.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-drop { animation: drop .18s ease-out; }
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee { animation: marquee 18s linear infinite; }
+.marquee:hover { animation-play-state: paused; }
